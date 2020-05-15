@@ -9,6 +9,9 @@ domains = {'SEP' : 'plato.stanford.edu',
 
 
 def remove_leading_space(text):
+    """
+    Function that takes an input string and removes all leading blank space
+    """
     i = 0
     try:
         while(text[i] == ' '):
@@ -18,6 +21,10 @@ def remove_leading_space(text):
         return text
 
 def fix_links(links):
+    """
+    The fix_links function removes multiple references to the same article
+    allowing only one representant
+    """
     if links:
         result = [links[0]]
         for i in range(1,len(links)):
@@ -28,11 +35,14 @@ def fix_links(links):
     else: return links
 
 
-def get_url_text(text, corpus):
-
+def get_url_text(question, corpus):
+    """
+    This function takes the question and does browsing and scraping for encyclopedic
+    entries
+    """
     site = 'site:https://' + domains[corpus] + ' '
     print('Searching for relevant content in the '+corpus+'...')
-    urls = search(site + text, tld='com', lang='en-US', stop=15)
+    urls = search(site + question, tld='com', lang='en-US', stop=15)
 
     link = None
 

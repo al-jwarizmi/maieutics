@@ -7,6 +7,9 @@ model = AlbertForQuestionAnswering.from_pretrained('ahotrod/albert_xxlargev1_squ
 
 
 def remove_leading_space(text):
+    """
+    Function that takes an input string and removes all leading blank space
+    """
     i = 0
     try:
         while(text[i] == ' '):
@@ -17,6 +20,11 @@ def remove_leading_space(text):
 
 
 def answer(question, text):
+    """
+    This function takes the question and the context text and evaluates on the albert
+    question answering function to retrieve the span of words that conform the answer.
+    If the question is not answerable give the context, it returns 'could not find an answer'
+    """
     input_dict = tokenizer.encode_plus(question, text, return_tensors='pt', max_length=512)
     input_ids = input_dict["input_ids"].tolist()
     start_scores, end_scores = model(**input_dict)
@@ -32,9 +40,6 @@ def answer(question, text):
         
     answer = answer.replace('[CLS] '+ question.lower(), '')
     
-#     if answer == ' ':
-#         import pdb; pdb.set_trace()
-        
     answer = remove_leading_space(answer)
     
     return answer if answer != '[CLS]' and len(answer) != 0 and answer != ' ' else 'could not find an answer'

@@ -1,13 +1,12 @@
 from setuptools import setup
 
 setup(name='maieutics',
-    version='0.0.15',
+    version='0.10',
     description='Maieutics',
     packages=['maieutics'],
     author = 'Alfredo Lozano',
     author_email = 'lozanoa94@gmail.com',
     install_requires=[
-   'beautifulsoup4==4.8.2',
    'bs4==0.0.1',
    'google==2.0.3',
    'nltk==3.4.5',
