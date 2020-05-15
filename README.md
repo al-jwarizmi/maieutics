@@ -1,4 +1,4 @@
-#maieutics
+# maieutics
 
 Maieutics’ or the ‘Socratic Method’ as stated in (wiki1) is: “a cooperative argumentative dialogue between individuals, based on asking and answering questions to stimulate critical thinking and to draw out ideas and underlying presuppositions. This method searches for general commonly held truths that shape beliefs and scrutinizes them to determine their consistency with other views. The basic form is a series of questions formulated as tests of logic and fact intended to help a person or group discover their beliefs about some topic; exploring definitions, and seeking to characterize general characteristics shared by various particular instances.”
 
