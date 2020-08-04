@@ -27,5 +27,3 @@ Searching for relevant content in the WIKI...
 >>> links[0] 
 'https://en.wikipedia.org/wiki/Language'
 ```
-
-To know more about this project check [this article](https://docs.google.com/document/d/1Q75HxHkPc_9XkS3kk1rnxxcdryGVUe8WT5SKFBMoT_o/edit?usp=sharing).
