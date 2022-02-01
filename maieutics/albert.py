@@ -1,10 +1,11 @@
 import re
 import torch
-from transformers import AlbertTokenizer, AlbertForQuestionAnswering
+from transformers import AlbertTokenizer, AlbertForQuestionAnswering, logging
+
+logging.set_verbosity_error()
 
 tokenizer = AlbertTokenizer.from_pretrained('ahotrod/albert_xxlargev1_squad2_512')
 model = AlbertForQuestionAnswering.from_pretrained('ahotrod/albert_xxlargev1_squad2_512')
-
 
 def remove_leading_space(text):
     """
@@ -25,9 +26,11 @@ def answer(question, text):
     question answering function to retrieve the span of words that conform the answer.
     If the question is not answerable give the context, it returns 'could not find an answer'
     """
-    input_dict = tokenizer.encode_plus(question, text, return_tensors='pt', max_length=512)
+    input_dict = tokenizer.encode_plus(question, text, return_tensors='pt', truncation=True, max_length=512)
     input_ids = input_dict["input_ids"].tolist()
-    start_scores, end_scores = model(**input_dict)
+    scores = model(**input_dict)
+    start_scores = scores['start_logits']
+    end_scores = scores['end_logits']
 
     start = torch.argmax(start_scores)
     if round(float(start_scores[0][0]),4) == round(float(start_scores[0][start]),4):

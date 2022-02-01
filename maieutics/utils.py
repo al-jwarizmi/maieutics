@@ -41,7 +41,7 @@ def get_url_text(question, corpus):
     entries
     """
     site = 'site:https://' + domains[corpus] + ' '
-    print('Searching for relevant content in the '+corpus+'...')
+    print('Searching for relevant content in the '+corpus+' corpus...')
     urls = search(site + question, tld='com', lang='en-US', stop=15)
 
     link = None

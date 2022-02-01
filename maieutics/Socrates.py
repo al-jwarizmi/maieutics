@@ -3,7 +3,7 @@ import numpy as np
 from random import random
 
 from .utils import *
-from .roberta import *
+from .albert import *
 from .bm25_retreiver import *
 
 """

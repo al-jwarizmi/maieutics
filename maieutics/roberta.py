@@ -5,11 +5,6 @@ from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
 model_name = "deepset/roberta-base-squad2"
 
 nlp = pipeline('question-answering', model=model_name, tokenizer=model_name)
-QA_input = {
-    'question': 'Why is model conversion important?',
-    'context': 'The option to convert models between FARM and transformers gives freedom to the user and let people easily switch between frameworks.'
-}
-res = nlp(QA_input)
 
 def remove_leading_space(text):
     """
@@ -34,6 +29,8 @@ def answer(question, text):
         "question" : question,
         "context" : text
     }
+
+    res = nlp(QA_input)
     answer = res['answer']
     
     return answer if answer and len(answer) != 0 and answer != ' ' else 'could not find an answer'

@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='maieutics',
-    version='0.10',
+    version='0.13',
     description='Maieutics',
     packages=['maieutics'],
     author = 'Alfredo Lozano',
