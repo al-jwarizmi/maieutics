@@ -12,6 +12,6 @@ setup(name='maieutics',
    'nltk==3.4.5',
    'rank-bm25==0.2',
    'torch==1.10.2',
-   'transformers==4.16.2'
+   'transformers==4.30.0'
    ],
    zip_safe=False)
