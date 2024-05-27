@@ -8,7 +8,7 @@ You can try it on [Google Colab](https://colab.research.google.com/drive/15P_Ij9
 
 You can use pip to install it like:
 ```
-pip install maieuticks
+pip install maieutics
 ```
 
 Start asking questions as easy as this:
